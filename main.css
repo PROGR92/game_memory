@@ -1,0 +1,50 @@
+body
+{
+	margin: 0;
+	background-color: #26282E;
+	color: #209781;
+    font-family: 'Lobster', sans-serif;
+    font-size: 28px;
+}
+header
+{
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 3px;
+}
+
+#board
+{
+	text-align: center;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.card
+{
+	background-image: url("img/karta.png");
+	width: 125px;
+	height: 125px;
+	border: 5px solid  #E9B64A;
+	border-radius: 5px;
+	display: inline-block;
+	filter: brightness(75%);
+	
+}
+.card:hover
+{
+	transition: all .2s ease-in-out;
+	filter: brightness(100%);
+	cursor: pointer;
+}
+
+a:link    { color: #209781; text-decoration: none; }
+a:visited { color: #209781; }
+a:active  { color: #209781; }
+a:hover   { color: #E9B64A; }
+
+
+
+
+
