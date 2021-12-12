@@ -44,6 +44,42 @@ a:visited { color: #209781; }
 a:active  { color: #209781; }
 a:hover   { color: #E9B64A; }
 
+select
+{
+	background-color: #26282E;
+	font-family: 'Lobster', sans-serif;
+	color: #209781;
+	font-size: 28px;
+	border-style:none ;
+	-webkit-appearance: none;
+	width: 40px;
+	text-align: center;
+}
+select:hover
+{
+	border-radius: 5px;
+	cursor: pointer;
+	border-style:none ;
+	transition: all .2s ease-in-out;
+	box-shadow: inset 0 0 2px 2px #E9B64A, 0 0 5px 5px #E9B64A;
+}
+
+#wczytajGre{
+	background-color: #26282E;
+	font-family: 'Lobster', sans-serif;
+	color: #209781;
+	font-size: 28px;
+	box-shadow: none;
+	border-style: none;
+	border-radius: 5px;
+}
+#wczytajGre:hover
+{
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	box-shadow: inset 0 0 1em #E9B64A, 0 0 10px 10px #E9B64A;
+
+}
 
 
 
