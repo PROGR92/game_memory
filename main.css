@@ -30,6 +30,8 @@ header
 	border-radius: 5px;
 	display: inline-block;
 	filter: brightness(75%);
+	margin: 5px;
+	
 	
 }
 .card:hover
