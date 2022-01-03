@@ -38,5 +38,12 @@ function rozgrywka(){
     }   
     document.getElementById("board").style.transition=" all .2s ease-in-out";
     document.getElementById("board").innerHTML = komplet; 
-    
+
+    $( ".card" ).on( "click", function() {
+        var index = $( ".card" ).index( this );
+        alert( index+1 );
+    });
+   
+
 };
+
