@@ -21,6 +21,8 @@ header
 	margin-right: auto;
 }
 
+
+
 .card
 {
 	background-image: url("img/karta.png");
@@ -31,15 +33,37 @@ header
 	display: inline-block;
 	filter: brightness(75%);
 	margin: 5px;
-	
-	
 }
+
+
+
 .card:hover
 {
 	transition: all .2s ease-in-out;
 	filter: brightness(100%);
 	cursor: pointer;
 }
+
+.cardA
+{
+	width: 125px;
+	height: 125px;
+	border: 5px solid  #E9B64A;
+	border-radius: 5px;
+	display: inline-block;
+	filter: brightness(100%);
+	margin: 5px;
+	cursor: default;
+}
+
+.cardA:hover
+{
+	transition: all 0 easy 0s;
+	filter: brightness(100%);
+	cursor: default;
+}
+
+
 
 a:link    { color: #209781; text-decoration: none; }
 a:visited { color: #209781; }

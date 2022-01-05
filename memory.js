@@ -1,4 +1,6 @@
 var ile_kart=0;
+var przypisKart=new Array();
+var fCardValue;
 
 window.onload=function(){
     var przycisk = document.getElementById("wczytajGre");
@@ -39,11 +41,78 @@ function rozgrywka(){
     document.getElementById("board").style.transition=" all .2s ease-in-out";
     document.getElementById("board").innerHTML = komplet; 
 
+    //TEST
+    addCardValue(ile_kart);
+
+    //activating event on click to all elements
     $( ".card" ).on( "click", function() {
         var index = $( ".card" ).index( this );
-        alert( index+1 );
+        var toCheck = 0;
+        //alert( przypisKart[index] );
+        //Pokazanie karty
+        showCardImg(index);
+
+        toCheck = $('.cardA').length;
+        if (toCheck >= 2) {
+            alert( toCheck );
+            compareCards(fCardValue,przypisKart[index]);                            
+        }else{
+            fCardValue=przypisKart[index];
+        } 
+               
     });
-   
 
 };
 
+//Funkcja przypisujaca wartosci do elementów BOARD-a
+function addCardValue(pair_nr){
+    
+    for (i=0; i<pair_nr*2; i++){
+        przypisKart[i]=100;
+    }
+    //alert (przypisKart.length);
+
+    //Przypisz wartosci dla elementów BOARD-a
+    var index = 0
+    for (i = 0; i < pair_nr; i++) {
+        var double = 0
+        do { 
+            index = getRandomInt(0, przypisKart.length)
+            if(przypisKart[index] == 100) {    
+                przypisKart[index]=i;
+                double++;
+            }
+        } while (double<2);
+    }
+    
+}
+
+//Zwraca wartość pseudolosowa w zakresie: >=min oraz <max
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+//Funkcja wymieniajaca obrazek tla danej kliknietej karty
+function showCardImg(cardindex){
+    $( ".card:eq( "+ (cardindex) +")" ).css( "background-image" , 'url("img/'+(przypisKart[cardindex])+'.png")' ); 
+    $( ".card:eq( "+ (cardindex) +")" ).toggleClass( 'cardA' );
+};
+
+//Funkcja porównania
+function compareCards(fCard,sCard){
+    if (fCard==sCard){
+        alert("Zajebioza: "+sCard+" : "+fCard);
+        $( ".cardA:eq( "+ (1) +")" ).toggleClass( 'cardA' );
+        $( ".cardA:eq( "+ (0) +")" ).toggleClass( 'cardA' );
+        //nie ten wskaznik na element
+        $( ".card:eq( "+ (fCard) +")" ).css( "opacity" , '0' );
+        $( ".card:eq( "+ (sCard) +")" ).css( "opacity" , '0' );
+
+    } else{
+        alert("LIPA: "+fCard+"#:#"+sCard);
+        $( ".cardA:eq( "+ (1) +")" ).toggleClass( 'cardA' );
+        $( ".cardA:eq( "+ (0) +")" ).toggleClass( 'cardA' );
+    }
+};
