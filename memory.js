@@ -37,31 +37,40 @@ function rozgrywka(){
             break;
         default:
             alert("BŁĄD");
-    }   
+    }
+      
     document.getElementById("board").style.transition=" all .2s ease-in-out";
     document.getElementById("board").innerHTML = komplet; 
 
-    //TEST
+    //Przypisanie wartosci do kart
     addCardValue(ile_kart);
+
+    //****************TU FUNKCJE POKAZANIA CALEJ TABLICY przez 2s 
 
     //activating event on click to all elements
     $( ".card" ).on( "click", function() {
         var index = $( ".card" ).index( this );
         var toCheck = 0;
+
         //alert( przypisKart[index] );
+
         //Pokazanie karty
         showCardImg(index);
+        
+        alert( przypisKart[index] );
 
+
+        //test czy odsloniete juz dwie karty
         toCheck = $('.cardA').length;
         if (toCheck >= 2) {
-            alert( toCheck );
-            compareCards(fCardValue,przypisKart[index]);                            
-        }else{
-            fCardValue=przypisKart[index];
-        } 
-               
-    });
+                  
+            compareCards(fCardValue,przypisKart[index]);
 
+        }else{
+
+            fCardValue=przypisKart[index];
+        }     
+    });
 };
 
 //Funkcja przypisujaca wartosci do elementów BOARD-a
@@ -104,15 +113,35 @@ function showCardImg(cardindex){
 function compareCards(fCard,sCard){
     if (fCard==sCard){
         alert("Zajebioza: "+sCard+" : "+fCard);
+        for (i=0 ; i<=przypisKart.length;i++){
+        //nie ten wskaznik na element
+            if( przypisKart[i]==fCard ){
+                $( ".card:eq( "+ i +")" ).css( "opacity" , '0' );
+                //$( ".card:eq( "+ (sCard) +")" ).css( "opacity" , '0' );    
+            }
+        }
+        //odłączenie 
         $( ".cardA:eq( "+ (1) +")" ).toggleClass( 'cardA' );
         $( ".cardA:eq( "+ (0) +")" ).toggleClass( 'cardA' );
-        //nie ten wskaznik na element
-        $( ".card:eq( "+ (fCard) +")" ).css( "opacity" , '0' );
-        $( ".card:eq( "+ (sCard) +")" ).css( "opacity" , '0' );
 
     } else{
         alert("LIPA: "+fCard+"#:#"+sCard);
         $( ".cardA:eq( "+ (1) +")" ).toggleClass( 'cardA' );
         $( ".cardA:eq( "+ (0) +")" ).toggleClass( 'cardA' );
+       
+        //zmiana tła karty na domyślne
+        for (i=0 ; i<=przypisKart.length;i++){
+            
+                if( (przypisKart[i]==fCard) ||  (przypisKart[i]==sCard) ){
+                 
+                    $( ".card:eq( "+ i +")" ).css( "background-image" , 'url("img/karta.png")' );
+                  
+                }
+            }
+        
+        
+        
+        
+        
     }
 };

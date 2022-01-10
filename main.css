@@ -106,7 +106,12 @@ select:hover
 	box-shadow: inset 0 0 1em #E9B64A, 0 0 10px 10px #E9B64A;
 
 }
-
+#score
+{
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 3px;
+}
 
 
 
