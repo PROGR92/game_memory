@@ -125,7 +125,7 @@ function getRandomInt(min, max) {
 //Funkcja wymieniajaca obrazek tla danej kliknietej karty
 function showCardImg(cardindex){
     $( ".card:eq( "+ (cardindex) +")" ).css( "background-image" , 'url("img/'+(przypisKart[cardindex])+'.png")' ); 
-    $( ".card:eq( "+ (cardindex) +")" ).toggleClass( 'cardA' );
+    $( ".card:eq( "+ (cardindex) +")" ).addClass( 'cardA' ); //toggleClass( 'cardA' );
 };
 
 //Funkcja porównania KART
