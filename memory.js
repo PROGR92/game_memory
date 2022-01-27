@@ -8,7 +8,6 @@ window.onload=function(){
 
 function getValue(){
     ile_kart=document.getElementById("ileKart").value;
-  //  alert(ile_kart);
     rozgrywka();
 };
 
@@ -39,9 +38,10 @@ function rozgrywka(){
         default:
             alert("BŁĄD");
     }
-      
-    document.getElementById("board").style.transition=" all .2s ease-in-out";
-    document.getElementById("board").innerHTML = komplet; 
+
+    //document.getElementById("board").style.transition= "transform 2s";
+    //document.getElementById("board").style.transform = "rotateX(360deg)";
+    document.getElementById("board").innerHTML = komplet;
 
     //Przypisanie wartosci do kart
     addCardValue(ile_kart);
@@ -52,7 +52,7 @@ function rozgrywka(){
         $( ".card:eq( "+ (i) +")" ).toggleClass( 'cardA' );
     }
 
-    //PONOWNE UKRYCIE kART DO GRY
+    //PONOWNE UKRYCIE KART DO GRY
 setTimeout(() => { 
         //odklejenie klasy cardA od kart tablicy
         for(let i=0;i<(ile_kart*2);i++){
@@ -125,7 +125,7 @@ function getRandomInt(min, max) {
 //Funkcja wymieniajaca obrazek tla danej kliknietej karty
 function showCardImg(cardindex){
     $( ".card:eq( "+ (cardindex) +")" ).css( "background-image" , 'url("img/'+(przypisKart[cardindex])+'.png")' ); 
-    $( ".card:eq( "+ (cardindex) +")" ).addClass( 'cardA' ); //toggleClass( 'cardA' );
+    $( ".card:eq( "+ (cardindex) +")" ).addClass( 'cardA' ); //toggleClass( 'cardA' ); bload mozliwosci ponownego klikniecia karty
 };
 
 //Funkcja porównania KART
